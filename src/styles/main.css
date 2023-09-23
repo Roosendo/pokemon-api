@@ -1,0 +1,235 @@
+:root {
+  --main-bg-color: #80f2e7;
+  --secondary-bg-color: #518c81;
+  --text-color: #323d40;
+  --secondary-text-color: #f2f2f2;
+} /* varaibles de colores para no cambiar uno por uno */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui;
+} /* reset de estilos */
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Estilos para la barra de desplazamiento */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--main-bg-color);
+  border-radius: 5px;
+}
+
+body {
+  color: var(--text-color);
+  background-color: var(--secondary-bg-color);
+  min-height: 100vh;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 10px;
+}
+
+select {
+  background-color: var(--main-bg-color);
+  color: var(--text-color);
+  border: 1px solid var(--text-color);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+select:hover {
+  background-color: var(--text-color);
+  color: var(--main-bg-color);
+  transition: 0.2s ease-out;
+}
+
+select:focus {
+  outline: none;
+  background-color: var(--text-color);
+  color: var(--main-bg-color);
+}
+
+select::-webkit-select {
+  border-radius: 0.5rem;
+}
+
+select::-webkit-dropdown-list {
+  border-radius: 0.5rem;
+}
+
+input[type='text'] {
+  background-color: var(--main-bg-color);
+  color: var(--text-color);
+  border: 1px solid var(--text-color);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+main {
+  padding: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+#listPokemon {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+/* estilos para que sea responsive */
+@media screen and (min-width: 470px) {
+  #listPokemon {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  #listPokemon {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.filter,
+.search {
+  display: flex;
+  align-items: center;
+}
+
+.idk {
+  flex: 1;
+} /* para que el input de busqueda ocupe todo el espacio */
+
+select,
+input {
+  width: 150px;
+  height: 37px;
+  margin-left: 10px;
+}
+
+#type,
+#search,
+#dinamicText,
+#progressBar {
+  margin-top: 10px;
+}
+
+#progressBar {
+  appearance: none;
+  height: 15px;
+  background-color: lightgray;
+}
+
+#progressBar::-webkit-progress-bar {
+  background-color: var(--secondary-bg-color);
+} /* estilos para la barra de progreso, fondo */
+
+#progressBar::-webkit-progress-value {
+  background-color: var(--main-bg-color);
+  border-radius: 10px;
+} /* estilos para la barra de progreso, color */
+
+/* Estilos de las tarjetas de los pokemons */
+.poke-container {
+  border-radius: 1rem;
+  background-color: var(--main-bg-color);
+  box-shadow: 0 0 3rem -1rem rgba(0, 0, 0, 0.25);
+  padding-block: 1rem;
+  text-transform: uppercase;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.poke-container:hover {
+  transform: scale(1.02);
+  transition: 0.2s ease;
+}
+
+.poke-id {
+  position: absolute;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 6rem;
+  font-weight: 800;
+  z-index: -1;
+  color: var(--secondary-bg-color);
+}
+
+.poke-img {
+  padding-inline: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.poke-img img {
+  width: 100%;
+  max-width: 6rem;
+}
+
+.poke-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-inline: 1rem;
+  align-items: center;
+  text-align: center;
+}
+
+.name-container {
+  display: flex;
+  align-items: center;
+  column-gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.poke-name {
+  font-size: 1.4rem;
+}
+
+.types-container {
+  display: flex;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.type {
+  padding: 0.25rem 0.5rem;
+  border-radius: 100vmax;
+}
+
+.poke-stats {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.85rem;
+}
+
+.stat {
+  background-color: var(--secondary-bg-color);
+  padding: 0.25rem 0.5rem;
+  border-radius: 100vmax;
+  color: var(--secondary-text-color);
+}

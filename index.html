@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./src/styles/main.css"> <!-- estilos generales -->
+  <link rel="stylesheet" href="./src/styles/cards.css"> <!-- estilos de las cards -->
+  <link rel="icon" href="pokedex.ico" type="image/x-icon"> <!-- icono de la pagina -->
+  <!-- me gusta mas tener el js aqui, el defer es para que cargue el js despues del html -->
+  <script type="module" src="./src/scripts/main.js" defer></script>
+  <title>PokeApi</title>
+</head>
+<body>
+  <!-- header para las partes de arriba, el filtro y eso -->
+  <header>
+    <h1>Pokédex</h1>
+    <p>Filter by:</p>
+    <div class="container">
+      <div class="filter">
+        <span class="idk">Type</span>
+        <!-- select para todos los tipos de pokemons -->
+        <select name="type" id="type">
+          <option value="">All</option>
+          <option value="bug">Bug</option>
+          <option value="dark">Dark</option>
+          <option value="dragon">Dragon</option>
+          <option value="electric">Electric</option>
+          <option value="fairy">Fairy</option>
+          <option value="fighting">Fighting</option>
+          <option value="fire">Fire</option>
+          <option value="flying">Flying</option>
+          <option value="ghost">Ghost</option>
+          <option value="grass">Grass</option>
+          <option value="ground">Ground</option>
+          <option value="ice">Ice</option>
+          <option value="normal">Normal</option>
+          <option value="poison">Poison</option>
+          <option value="psychic">Psychic</option>
+          <option value="rock">Rock</option>
+          <option value="shadow">Shadow</option>
+          <option value="steel">Steel</option>
+          <option value="unknown">Unknown</option>
+          <option value="water">Water</option>
+        </select>
+      </div>
+      <div class="search">
+        <span class="idk">Name</span>
+        <input type="text" id="search" placeholder="Search">
+      </div>
+    </div>
+    <!-- barra de progreso -->
+    <progress id="progressBar" value="0"></progress>
+    <p id="dinamicText"></p>
+  </header>
+  <!-- zona en donde se agregan los pokemons -->
+  <main>
+    <div>
+      <div id="listPokemon">
+        <!-- aqui se agregan los pokemons -->
+      </div>
+    </div>
+  </main>
+</body>
+</html>
