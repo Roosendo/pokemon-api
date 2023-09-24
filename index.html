@@ -15,7 +15,7 @@
   <header>
     <h1>Pokédex</h1>
     <p>Filter by:</p>
-    <div class="container">
+    <section class="container">
       <div class="filter">
         <span class="idk">Type</span>
         <!-- select para todos los tipos de pokemons -->
@@ -47,10 +47,12 @@
         <span class="idk">Name</span>
         <input type="text" id="search" placeholder="Search">
       </div>
-    </div>
-    <!-- barra de progreso -->
-    <progress id="progressBar" value="0"></progress>
-    <p id="dinamicText"></p>
+      <div class="helper">
+        <!-- barra de progreso -->
+        <progress id="progressBar" value="0"></progress>
+        <p id="dinamicText"></p>
+      </div>
+    </section>
   </header>
   <!-- zona en donde se agregan los pokemons -->
   <main>

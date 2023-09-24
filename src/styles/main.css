@@ -114,6 +114,11 @@ main {
   align-items: center;
 }
 
+.helper {
+  display: grid;
+  place-items:  start center;
+}
+
 .idk {
   flex: 1;
 } /* para que el input de busqueda ocupe todo el espacio */
