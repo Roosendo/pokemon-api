@@ -9,7 +9,16 @@ export async function fetchPokemon (id) {
     }
 
     const data = await res.json()
-    return data
+
+    const pokemonInfo = {
+      id: data.id,
+      name: data.name,
+      types: data.types,
+      sprites: data.sprites,
+      stats: data.stats,
+    }
+
+    return pokemonInfo
   } catch (err) {
     console.error(err)
     throw err

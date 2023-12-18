@@ -1,14 +1,11 @@
 // funcion para filtrar los pokemons por nombre
 function filterByName (pokemons, searchText) {
-  if (!searchText) return pokemons
-  searchText = searchText.toLowerCase()
-  return pokemons.filter(pokemon => pokemon.name.toLowerCase().includes(searchText))
+  return searchText ? pokemons.filter(pokemon => pokemon.name.toLowerCase().includes(searchText)) : pokemons
 }
 
 // funcion para filtrar los pokemons por tipo
 function filterByType (pokemons, selectedType) {
-  if (!selectedType) return pokemons
-  return pokemons.filter(pokemon => pokemon.types.some(t => t.type.name === selectedType))
+  return selectedType ? pokemons.filter(pokemon => pokemon.types.some(type => type.type.name === selectedType)) : pokemons
 }
 
 // funcion para aplicar los filtros

@@ -162,11 +162,13 @@ input {
   position: relative;
   isolation: isolate;
   overflow: hidden;
+  opacity: 0.8;
+  transition: 0.2s ease;
 }
 
 .poke-container:hover {
   transform: scale(1.02);
-  transition: 0.2s ease;
+  opacity: 1;
 }
 
 .poke-id {
@@ -178,12 +180,15 @@ input {
   font-weight: 800;
   z-index: -1;
   color: var(--secondary-bg-color);
+  opacity: 0.3;
 }
 
 .poke-img {
   padding-inline: 1rem;
   display: flex;
   justify-content: center;
+  object-fit: cover;
+  filter: contrast(110%) brightness(110%);
 }
 
 .poke-img img {

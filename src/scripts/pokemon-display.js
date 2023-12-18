@@ -1,11 +1,11 @@
 // funcion para mostrar los pokemons en el html
-export function displayPokemon (poke, listPokemon) {
+export function displayPokemon (pokemons, listPokemon) {
   // de cada pokemon, traer sus tipos, y mostrarlos en el html como etiqueta span
-  let types = poke.types.map(type => `<span class="type ${type.type.name}">${type.type.name}</span>`)
+  let types = pokemons.types.map(type => `<span class="type ${type.type.name}">${type.type.name}</span>`)
   types = types.join('')
 
   // para que el id de cada pokemon sea de 3 digitos (001, 022, 333, etc)
-  let pokeId = poke.id.toString()
+  let pokeId = pokemons.id.toString()
   pokeId = pokeId.length === 1 ? '00' + pokeId : pokeId.length === 2 ? '0' + pokeId : pokeId
 
   const div = document.createElement('div')
@@ -13,19 +13,19 @@ export function displayPokemon (poke, listPokemon) {
     <div class="poke-container">
       <p class="poke-id">#${pokeId}</p>
       <div class="poke-img">
-        <img src="${poke.sprites.other['official-artwork'].front_default}" alt="${poke.name}" loading="lazy">
+        <img src="${pokemons.sprites.other['official-artwork'].front_default}" alt="${pokemons.name}" loading="lazy">
       </div>
       <div class="poke-info">
         <div class="name-container">
-          <h2 class="poke-name">${poke.name}</h2>
+          <h2 class="poke-name">${pokemons.name}</h2>
         </div>
         <div class="types-container">
           ${types}
         </div>
         <div class="poke-stats">
-          <span class="stat">HP: ${poke.stats[0].base_stat}</span>
-          <span class="stat">ATK: ${poke.stats[1].base_stat}</span>
-          <span class="stat">DEF: ${poke.stats[2].base_stat}</span>
+          <span class="stat">HP: ${pokemons.stats[0].base_stat}</span>
+          <span class="stat">ATK: ${pokemons.stats[1].base_stat}</span>
+          <span class="stat">DEF: ${pokemons.stats[2].base_stat}</span>
         </div>
       </div>
     </div>
