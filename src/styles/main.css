@@ -88,6 +88,7 @@ main {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1rem;
+  margin-bottom: 100px;
 }
 
 /* estilos para que sea responsive */
@@ -164,6 +165,10 @@ input {
   overflow: hidden;
   opacity: 0.8;
   transition: 0.2s ease;
+
+  animation: reveal linear both;
+  animation-timeline: view();
+  animation-range: entry 20% cover 35%;
 }
 
 .poke-container:hover {
@@ -242,4 +247,18 @@ input {
   padding: 0.25rem 0.5rem;
   border-radius: 100vmax;
   color: var(--secondary-text-color);
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+    translate: 0 100px;
+    scale: 0.3;
+  }
+
+  to {
+    opacity: 1;
+    translate: 0 0;
+    scale: 1;
+  }
 }
