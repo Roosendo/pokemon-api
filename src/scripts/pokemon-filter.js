@@ -1,6 +1,6 @@
 // funcion para filtrar los pokemons por nombre
 function filterByName (pokemons, searchText) {
-  return searchText ? pokemons.filter(pokemon => pokemon.name.toLowerCase().includes(searchText)) : pokemons
+  return searchText ? pokemons.filter(pokemon => pokemon.name.toLowerCase().includes(searchText.toLowerCase())) : pokemons
 }
 
 // funcion para filtrar los pokemons por tipo
