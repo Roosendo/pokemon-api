@@ -14,7 +14,7 @@ export async function fetchPokemon (id) {
       id: data.id,
       name: data.name,
       types: data.types,
-      sprites: data.sprites,
+      other: data.sprites.other,
       stats: data.stats,
     }
 
