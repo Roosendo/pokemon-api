@@ -1,6 +1,8 @@
+import { Pokemon } from '../types/PokemonTypes.js'
+
 const API_POKEMON = 'https://pokeapi.co/api/v2/pokemon/'
 
-export async function fetchPokemon (id) {
+export async function fetchPokemon (id: number) {
   try {
     const res = await fetch(API_POKEMON + id)
 
@@ -10,7 +12,7 @@ export async function fetchPokemon (id) {
 
     const data = await res.json()
 
-    const pokemonInfo = {
+    const pokemonInfo: Pokemon = {
       id: data.id,
       name: data.name,
       types: data.types,

@@ -1,9 +1,11 @@
+import { Pokemon } from '../types/PokemonTypes.ts'
+
 // funcion para mostrar los pokemons en el html
-export function displayPokemon (pokemons, listPokemon) {
+export function displayPokemon (pokemons: Pokemon, listPokemon: HTMLDivElement) {
   console.log(pokemons)
   // de cada pokemon, traer sus tipos, y mostrarlos en el html como etiqueta span
-  let types = pokemons.types.map(type => `<span class="type ${type.type.name}">${type.type.name}</span>`)
-  types = types.join('')
+  let types = ''
+  types = pokemons.types.map(type => `<span class="type ${type.type.name}">${type.type.name}</span>`).join('')
 
   // para que el id de cada pokemon sea de 3 digitos (001, 022, 333, etc)
   let pokeId = pokemons.id.toString()

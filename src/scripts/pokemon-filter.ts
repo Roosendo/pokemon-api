@@ -1,15 +1,18 @@
+import { Pokemon } from '../types/PokemonTypes.ts'
+import { ApplyFilterParams } from '../types/ApplyFilterParams.ts'
+
 // funcion para filtrar los pokemons por nombre
-function filterByName (pokemons, searchText) {
+function filterByName (pokemons: Pokemon[], searchText: string) {
   return searchText ? pokemons.filter(pokemon => pokemon.name.toLowerCase().includes(searchText.toLowerCase())) : pokemons
 }
 
 // funcion para filtrar los pokemons por tipo
-function filterByType (pokemons, selectedType) {
+function filterByType (pokemons: Pokemon[], selectedType: string) {
   return selectedType ? pokemons.filter(pokemon => pokemon.types.some(type => type.type.name === selectedType)) : pokemons
 }
 
 // funcion para aplicar los filtros
-export function applyFilter (pokemons, listPokemon, displayPokemon, searchText, selectedType, dinamicText) {
+export function applyFilter ({ pokemons, listPokemon, displayPokemon, searchText, selectedType, dinamicText }: ApplyFilterParams) {
   // filtrar los pokemons por nombre y tipo
   const filteredPokemons = filterByType(filterByName(pokemons, searchText), selectedType)
   // aqui limpio el html

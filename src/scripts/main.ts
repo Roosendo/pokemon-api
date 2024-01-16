@@ -1,18 +1,22 @@
-import { fetchPokemon } from './pokemon-api.js' // importar la funcion para traer los pokemons
+import { fetchPokemon } from './pokemon-api.ts' // importar la funcion para traer los pokemons
 import { displayPokemon } from './pokemon-display.js' // importar la funcion para mostrar los pokemons
 import { applyFilter } from './pokemon-filter.js' // importar la funcion para filtrar los pokemons
 
-const listPokemon = document.querySelector('#listPokemon') // lugar del html donde se mostraran los pokemons
-const searchInput = document.getElementById('search') // input para buscar por nombre
-const typeSelect = document.getElementById('type') // select para buscar por tipo
-const progressBar = document.getElementById('progressBar') // barra de progreso
+import { Pokemon } from '../types/PokemonTypes.ts'
+
+const listPokemon = document.querySelector('#listPokemon') as HTMLDivElement // lugar del html donde se mostraran los pokemons
+const searchInput = document.querySelector('#search') as HTMLInputElement // input para buscar por nombre
+const typeSelect = document.querySelector('#type') as HTMLInputElement // select para buscar por tipo
+const progressBar = document.querySelector('#progressBar') as HTMLProgressElement // barra de progreso
 const max = 250
-progressBar.max = max // maximo de la barra de progreso
+if (progressBar) progressBar.max = max // maximo de la barra de progreso
 
 async function fetchAndDisplayPokemons () {
-  const dinamicText = document.getElementById('dinamicText')
+  const dinamicText = document.querySelector('#dinamicText') as HTMLParagraphElement
+  if (!dinamicText) return
+
   let i = 1
-  const pokemons = []
+  const pokemons: Pokemon[] = []
 
   while (i <= max) {
     try {
@@ -29,10 +33,19 @@ async function fetchAndDisplayPokemons () {
   progressBar.style.display = 'none'
   dinamicText.textContent = ''
 
-  function handleFilters () {
+  function handleFilters() {
+    if (!searchInput || !typeSelect) return
+
     const searchText = searchInput.value.trim()
     const selectedType = typeSelect.value
-    applyFilter(pokemons, listPokemon, displayPokemon, searchText, selectedType, dinamicText)
+    applyFilter({
+      pokemons,
+      listPokemon,
+      displayPokemon,
+      searchText,
+      selectedType,
+      dinamicText
+    })
   }
 
   searchInput.addEventListener('input', handleFilters) // evento para filtrar, nombre
