@@ -1,5 +1,6 @@
 // funcion para mostrar los pokemons en el html
 export function displayPokemon (pokemons, listPokemon) {
+  console.log(pokemons)
   // de cada pokemon, traer sus tipos, y mostrarlos en el html como etiqueta span
   let types = pokemons.types.map(type => `<span class="type ${type.type.name}">${type.type.name}</span>`)
   types = types.join('')
@@ -13,7 +14,7 @@ export function displayPokemon (pokemons, listPokemon) {
     <div class="poke-container">
       <p class="poke-id">#${pokeId}</p>
       <div class="poke-img">
-        <img src="${pokemons.sprites.other['official-artwork'].front_default}" alt="${pokemons.name}" loading="lazy">
+        <img src="${pokemons.other.dream_world.front_default}" alt="${pokemons.name}" loading="lazy">
       </div>
       <div class="poke-info">
         <div class="name-container">
