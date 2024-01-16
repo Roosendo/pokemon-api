@@ -197,7 +197,8 @@ input {
 }
 
 .poke-img img {
-  width: 100%;
+  width: 96px;
+  height: 96px;
   max-width: 6rem;
 }
 
